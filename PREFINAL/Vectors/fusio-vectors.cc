@@ -1,0 +1,62 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<double> fusio(const vector<double>& V1, const vector<double>& V2)
+{
+    int sV1 = V1.size();
+    int sV2 = V2.size();
+    int i = 0, j = 0;
+    vector<double> concat;
+    while (i < sV1 and j < sV2) {
+        if (V1[i] <= V2[j]) {
+            concat.push_back(V1[i]);
+            ++i;
+        } else {
+            concat.push_back(V2[j]);
+            ++j;
+        }
+    }
+    while (i < sV1) {
+        concat.push_back(V1[i]);
+        ++i;
+    }
+    while (j < sV2) {
+        concat.push_back(V2[j]);
+        ++j;
+    }
+
+    return concat;
+}
+
+int main()
+{
+    cout.setf(ios::fixed, ios::floatfield);
+    cout.precision(1);
+
+    int n1;
+    while (cin >> n1) {
+        vector<double> V1(n1);
+        for (int i = 0; i < n1; ++i)
+            cin >> V1[i];
+        int n2;
+        cin >> n2;
+        vector<double> V2(n2);
+        for (int i = 0; i < n2; ++i)
+            cin >> V2[i];
+
+        vector<double> res = fusio(V1, V2);
+        int n3 = res.size();
+        cout << n3 << endl;
+        for (int i = 0; i < n3; ++i)
+            cout << " " << res[i];
+        cout << endl
+             << endl;
+
+        for (int r = 0; r < 200; ++r) {
+            vector<double> res2 = fusio(V1, V2);
+            if (res2 != res)
+                cout << "Resultats diferents amb la mateixa entrada!" << endl;
+        }
+    }
+}
