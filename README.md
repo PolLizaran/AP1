@@ -5,4 +5,4 @@ This folder contains all the programs done during the subject 'Algorísmia i Pro
 
 - - -
 
-developed by Pol Lizaran Campano, Data Science and Engineering students at UPC, 2020
+developed by Pol Lizaran Campano, Data Science and Engineering student at UPC, 2020
